@@ -9,8 +9,7 @@
 
 
 ## 퀴즈정보 API
-### 서버 정보
-#### https://quizapi.snapplay.io/api/
+### 서버 정보   https://quizapi.snapplay.io/api/
 
 
 
