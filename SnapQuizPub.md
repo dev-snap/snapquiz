@@ -6,17 +6,26 @@
 #### Contact E-mail : quiz@snapplay.io 
 
 
-## 퀴즈정보 API 요청
+
+
+## 퀴즈정보 API
 ### 서버 정보
 #### https://quizapi.snapplay.io/api/
 
 
+
+
+
+
 ## * API 정보
-  ### /pub_quizlist
-  ### 참여 가능한 퀴즈목록 조회
-  ### Mothod : POST 
+### /pub_quizlist
+#### 참여 가능한 퀴즈목록 조회
+#### Mothod : POST 
 
 
+
+
+### 파라메터
 | 파라메터 명칭 | 필수여부 |  내용                                               |
 | ------------- | ---- | ------------------------------------------------------------|
 | api_key       |    Y    | 스냅플레이에서 발급받은 API키  (ex : pub-xxxxxxxxx  형태)   |
@@ -49,6 +58,8 @@ const req_param = {
       });
 ```
      
+
+
 * (응답 ex :  성공 )
 * 응답에 성공한경우 quiz_info > landing_url  의 항목으로 웹페이지 이동하면 됩니다. 
 ``` json
@@ -64,6 +75,8 @@ const req_param = {
     }
 }
 ```
+
+### DATA
 | 상위항목 | 필드 | 타입 | 설명 |
 |-----|-----|-----|-----|
 | | result| Number | 결과값 0 : 성공 , 그 외 에러코드 |
