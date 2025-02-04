@@ -1,13 +1,19 @@
 # 스냅퀴즈. Pub 방향 
 
 
+### API키 발급
+1. 스냅퀴즈 공식 이메일을 통해 API키를 발급받는다
+##   * Contact E-mail : quiz@snapplay.io 
 
 
- 
-## "스냅퀴즈" 를 제외한 외부 접근은 매체사로 판단 
+### 퀴즈정보 API 요청
+##### Method
+- pub_quizlist
 
-### ( 작업. 0 ) 랜덤퀴즈 발급기능 개발 
-   * 발급 개발 `
+| 파라메터 명칭 | 내용                                                         |
+| ------------- | ------------------------------------------------------------ |
+| api_key     | 스냅플레이에서 발급받은 API키                                    |
+| handlerName   | EventHandler 객체의 이름                                     |
 
 ### ( 작업. 1 ) 캠페인 기능 (매체사 관리 정보) 추가 DB (CMS 관리)
    * 매체사 고유 아이디 (키값생성)
@@ -31,7 +37,7 @@
                     "desc_text": "제공되는 퀴즈 단계를 모두 풀어보세요!",
                     "thumb_url": "https://d31pfn6usm02y3.cloudfront.net/snapquiz/partner_banner/2lp4r9bvak.jpg",
                     "quiz_count": 5,
-                    "landing_url": "http://quiz.snapplay.io/quizview_ad?type=pub&partner_key=pub-gx6dcqac39a8fhso"
+                    "landing_url": "http://quiz.snapplay.io/quizview_ad?type=pub&api_key=pub-gx6dcqac39a8fhso"
                 }
             ]
         }
@@ -48,7 +54,7 @@
   
   
 ### ( 작업. 3 ) 외부 전달할 API 서버 도메인연동
-* 도메인 : quizapi.snapplay.io 
+* 도메인 : quiz.snapplay.io
 
  
  
