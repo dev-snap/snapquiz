@@ -1,9 +1,9 @@
-# 스냅퀴즈. Pub 방향 
+# SnapQuiz API Document
 
 
-## API키 발급
-1. 스냅퀴즈 공식 이메일을 통해 API키를 발급받는다
-##   * Contact E-mail : quiz@snapplay.io 
+## * API키 발급
+### 스냅퀴즈 공식 이메일을 통해 API키를 발급받는다
+#### Contact E-mail : quiz@snapplay.io 
 
 
 ## 퀴즈정보 API 요청
@@ -11,10 +11,11 @@
 #### https://quizapi.snapplay.io/api/
 
 
-## API 정보
+## * API 정보
   ### /pub_quizlist
   ### 참여 가능한 퀴즈목록 조회
   ### Mothod : POST 
+
 
 | 파라메터 명칭 | 필수여부 |  내용                                               |
 | ------------- | ---- | ------------------------------------------------------------|
@@ -23,25 +24,44 @@
 
  * #### querys.. 기타 콜백으로 돌려받기 희망하는 데이터는 post 방식으로 넘기면 조건달성시 callback 으로 넘어갑니다. 
       
-* (요청 Sample : 테스트 api_key = 'pub-testapi123456789')
+* (요청 Sample  : Javascript )
+  * api_key : 'pub-testapi123456789'
+  * user_id : 'test_user_id'
+  * user_nick : 'test_user_nick'
+  * expire_date : '2090-12-12'
+``` javascript
+import axios from 'axios';
 
+const API_DOMAIN = 'https://quizapi.snapplay.io/api/pub_quizinfo';
+const req_param = {
+  api_key: 'pub-testapi123456789',
+  user_id: 'test_user_id',
+  user_nick: 'test_user_nick',
+  expire_date: '2090-12-12'
+};
 
-
-
+  axios.post(API_DOMAIN, req_param) // POST 요청 + 모든 쿼리 매개변수 전달
+      .then((response_callback) => {
+        console.log(JSON.stringify(response_callback.data));
+      })
+      .catch((error) => {
+        console.error('Error in API request:', error);
+      });
+```
      
 * (응답 ex :  성공 )
 * 응답에 성공한경우 quiz_info > landing_url  의 항목으로 웹페이지 이동하면 됩니다. 
 ``` json
 {
-  "result": 0,
-  "msg": "success",
-  "quiz_info": {
-    "title": "테스트 캠페인",
-    "desc_text": "제공되는 퀴즈 단계를 모두 풀어보세요!",
-    "thumb_url": "https://d31pfn6usm02y3.cloudfront.net/snapquiz/partner_banner/2lp4r9bvak.jpg",
-    "quiz_count": 5,
-    "landing_url": "https://quiz.snapplay.io/quizview_ad?type=pub&api_key=pub-gx6dcqac39a8fhso$...."
-    }            
+    "result": 0,
+    "msg": "success",
+    "quiz_info": {
+        "title": "테스트 캠페인",
+        "desc_text": "제공되는 퀴즈 단계를 모두 풀어보세요!",
+        "thumb_url": "https://d31pfn6usm02y3.cloudfront.net/snapquiz/partner_banner/2lp4r9bvak.jpg",
+        "quiz_count": 5,
+        "landing_url": "https://quiz.snapplay.io/quizview_ad?api_key=pub-testapi123456789&user_id=test_user_id&user_nick=test_user_nick&expire_date=2090-12-12"
+    }
 }
 ```
 | 상위항목 | 필드 | 타입 | 설명 |
