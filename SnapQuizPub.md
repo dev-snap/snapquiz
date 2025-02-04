@@ -23,7 +23,7 @@
 
  * #### querys.. 기타 콜백으로 돌려받기 희망하는 데이터는 post 방식으로 넘기면 조건달성시 callback 으로 넘어갑니다. 
       
-* (요청 Sample : 테스트 api_key = 'pub-gx6dcqac39a8fhso')
+* (요청 Sample : 테스트 api_key = 'pub-testapi123456789')
 
 
 
