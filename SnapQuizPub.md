@@ -8,7 +8,7 @@
 
 
 
-## 퀴즈정보 API
+## * 퀴즈정보 API
 ### 서버 정보   https://quizapi.snapplay.io/api/
 <br><br><br>
 
@@ -17,7 +17,7 @@
 
 
 ## * API 정보
-### /pub_quizlist
+### /pub_quizinfo
 #### 참여 가능한 퀴즈목록 조회
 #### Mothod : POST 
 
@@ -48,13 +48,13 @@ const req_param = {
   expire_date: '2090-12-12'
 };
 
-  axios.post(API_DOMAIN, req_param) // POST 요청 + 모든 쿼리 매개변수 전달
-      .then((response_callback) => {
-        console.log(JSON.stringify(response_callback.data));
-      })
-      .catch((error) => {
-        console.error('Error in API request:', error);
-      });
+axios.post(API_DOMAIN, req_param) // POST 요청 + 모든 쿼리 매개변수 전달
+    .then((response_callback) => {
+      console.log(JSON.stringify(response_callback.data));
+    })
+    .catch((error) => {
+      console.error('Error in API request:', error);
+    });
 ```
      
 
