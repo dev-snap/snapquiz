@@ -70,7 +70,7 @@ axios.post(API_DOMAIN, req_param) // POST 요청 + 모든 쿼리 매개변수 �
         "desc_text": "제공되는 퀴즈 단계를 모두 풀어보세요!",
         "thumb_url": "https://d31pfn6usm02y3.cloudfront.net/snapquiz/partner_banner/2lp4r9bvak.jpg",
         "quiz_count": 5,
-        "landing_url": "https://quiz.snapplay.io/quizview_ad?api_key=pub-testapi123456789&user_id=test_user_id&user_nick=test_user_nick&expire_date=2090-12-12"
+        "landing_url": "https://quiz.snapplay.io/quizview_ad?type=pub&api_key=pub-testapi123456789&user_id=test_user_id&user_nick=test_user_nick&expire_date=2090-12-12"
     }
 }
 ```
