@@ -19,7 +19,7 @@
 ## * API 정보
 ### /pub_quizinfo
 #### 참여 가능한 퀴즈목록 조회
-#### Mothod : POST 
+#### Method : POST 
 
 
 
@@ -28,11 +28,11 @@
 | 파라메터 명칭 | 필수여부 |  내용                                               |
 | ------------- | ---- | ------------------------------------------------------------|
 | api_key       |    Y    | 스냅플레이에서 발급받은 API키  (ex : pub-xxxxxxxxx  형태)   |
-| querys...       |  N  | (선택) 조건달성시 돌려받을 파라메터 모음                          |
+| params...       |  N  | (선택) 조건달성시 돌려받을 파라메터 모음                          |
 
- * #### querys.. 기타 콜백으로 돌려받기 희망하는 데이터는 post 방식으로 넘기면 조건달성시 callback 으로 넘어갑니다. 
+ * #### params.. 기타 콜백으로 돌려받기 희망하는 데이터는 post 방식으로 넘기면 조건달성시 callback 으로 넘어갑니다. 
       
-* (요청 Sample  : Javascript )
+* 요청 Sample  : Javascript api 외 params (user_id, user_nick , expire_date..)
   * api_key : 'pub-testapi123456789'
   * user_id : 'test_user_id'
   * user_nick : 'test_user_nick'
@@ -40,7 +40,7 @@
 ``` javascript
 import axios from 'axios';
 
-const API_DOMAIN = 'https://quizapi.snapplay.io/api/pub_quizinfo';
+const API_DOMAIN = 'https://quizapi.snapplay.io/api/pub_quizlist';
 const req_param = {
   api_key: 'pub-testapi123456789',
   user_id: 'test_user_id',
@@ -65,13 +65,28 @@ axios.post(API_DOMAIN, req_param) // POST 요청 + 모든 쿼리 매개변수 �
 {
     "result": 0,
     "msg": "success",
-    "quiz_info": {
-        "title": "테스트 캠페인",
-        "desc_text": "제공되는 퀴즈 단계를 모두 풀어보세요!",
-        "thumb_url": "https://d31pfn6usm02y3.cloudfront.net/snapquiz/partner_banner/2lp4r9bvak.jpg",
-        "quiz_count": 5,
-        "landing_url": "https://quiz.snapplay.io/quizview_ad?type=pub&api_key=pub-testapi123456789&user_id=test_user_id&user_nick=test_user_nick&expire_date=2090-12-12"
-    }
+    "quiz_list": [
+        {
+            "pid": 5,
+            "title": "간단한 퀴즈 참여하기",
+            "desc_text": "이미지퀴즈의 정답을 모두 맟추면 성공!",
+            "thumb_url": "snapquiz/quiz_img/pub/1/s3y10q0qshe.png",
+            "quiz_count": 2,
+            "activation_start": "2025-02-09 00:00:00",
+            "activation_end": "2025-02-09 23:59:00",
+            "landing_url": "https://quiz.snapplay.io/quizview_ad?type=pub&quiz_id=5&api_key=pub-testapi123456789&user_id=test_user_id&user_nick=test_user_nick&expire_date=2090-12-12"
+        },
+        {
+            "pid": 7,
+            "title": "간단한 퀴즈 참여하기",
+            "desc_text": "이미지퀴즈의 정답을 모두 맟추면 성공!",
+            "thumb_url": "snapquiz/quiz_img/pub/1/rlnvjv0ro4.png",
+            "quiz_count": 5,
+            "activation_start": "2025-02-09 00:00:00",
+            "activation_end": "2025-02-09 23:59:00",
+            "landing_url": "https://quiz.snapplay.io/quizview_ad?type=pub&quiz_id=7&api_key=pub-testapi123456789&user_id=test_user_id&user_nick=test_user_nick&expire_date=2090-12-12"
+        }
+    ]
 }
 ```
 
@@ -85,6 +100,8 @@ axios.post(API_DOMAIN, req_param) // POST 요청 + 모든 쿼리 매개변수 �
 | quiz_info | desc_text | String | 퀴즈 캠페인 상세 설명 (ex : 제공되는 퀴즈 단계를 모두 풀어보세요!) |
 | quiz_info | thumb_url | String | 리스트에 들어가게될 썸네일 아이콘 |
 | quiz_info | quiz_count | Number | 퀴즈번들에 포함된 퀴즈 갯수 |
+| quiz_info | activation_start | String | 퀴즈 캠페인 활성화 시작시간 |
+| quiz_info | activation_end | String | 퀴즈 캠페인 활성화 종료료시간 |
 | quiz_info | landing_url | String | 랜딩URL POST Query로 전달하는 데이터가 함께 포함됩니다 변형x |
 
 
@@ -102,7 +119,7 @@ axios.post(API_DOMAIN, req_param) // POST 요청 + 모든 쿼리 매개변수 �
 ```
 
 
-## 응답 result Code 
+### 응답 result Code 
 | 값 | 상태                                                         |
 |----|--------------------------------------------------------------|
 | 0 | 상태                                                         |
@@ -111,6 +128,22 @@ axios.post(API_DOMAIN, req_param) // POST 요청 + 모든 쿼리 매개변수 �
 
 
 
+
+### 콜백 
+* 콜백은 퀴즈를 모두 풀고나면 POST Method로 호출됩니다. 
+* 콜백은 파트너사 API 키 등록 요청시 함께 전달해 내부에 등록됩니다. 
+* 콜백에 전달되는 파라메터는 api_key 와 파트너사가 전달하는 params...  외에 
+order_id 가 추가됩니다. 
+
+
+
+| 파라메터 명칭 |   내용                                               |
+| ------------- | ------------------------------------------------------------|
+| api_key       |     스냅플레이에서 발급받은 API키  (ex : pub-xxxxxxxxx  형태) |
+| order_id      |   모든 퀴즈를 풀고나면 퀴즈 완료에 대한 고유 거래 아이디 발급. |
+| params...     |   (선택) 조건달성시 돌려받을 파라메터 모음                     |
+
+ 
 
 
 
