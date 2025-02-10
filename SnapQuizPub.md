@@ -17,7 +17,7 @@
 
 
 ## * API 정보
-### /pub_quizinfo
+### /pub_quizlist
 #### 참여 가능한 퀴즈목록 조회
 #### Method : POST 
 
