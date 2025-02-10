@@ -75,7 +75,7 @@ axios.post(API_DOMAIN, req_param) // POST 요청 + 모든 쿼리 매개변수 �
             "quiz_count": 2,
             "activation_start": "2025-02-09 00:00:00",
             "activation_end": "2025-02-09 23:59:00",
-            "landing_url": "https://quiz.snapplay.io/quizview_ad?type=pub&quiz_id=5&api_key=pub-testapi123456789&user_id=test_user_id&user_nick=test_user_nick&expire_date=2090-12-12"
+            "landing_url": "https://quiz.snapplay.io/quizview_ad?type=pub&pid=5&api_key=pub-testapi123456789&user_id=test_user_id&user_nick=test_user_nick&expire_date=2090-12-12"
         },
         {
             "pid": 7,
@@ -85,7 +85,7 @@ axios.post(API_DOMAIN, req_param) // POST 요청 + 모든 쿼리 매개변수 �
             "quiz_count": 5,
             "activation_start": "2025-02-09 00:00:00",
             "activation_end": "2025-02-09 23:59:00",
-            "landing_url": "https://quiz.snapplay.io/quizview_ad?type=pub&quiz_id=7&api_key=pub-testapi123456789&user_id=test_user_id&user_nick=test_user_nick&expire_date=2090-12-12"
+            "landing_url": "https://quiz.snapplay.io/quizview_ad?type=pub&pid=7&api_key=pub-testapi123456789&user_id=test_user_id&user_nick=test_user_nick&expire_date=2090-12-12"
         }
     ]
 }
@@ -96,14 +96,15 @@ axios.post(API_DOMAIN, req_param) // POST 요청 + 모든 쿼리 매개변수 �
 |-----|-----|-----|-----|
 | | result| Number | 결과값 0 : 성공 , 그 외 에러코드 |
 | | msg| String | 성공상태 , 또는 에러 메세지  |
-| | quiz_info| Map | 성공인 경우 퀴즈정보가 담깁니다.  |
-| quiz_info | title | String | 퀴즈 캠페인 이름 |
-| quiz_info | desc_text | String | 퀴즈 캠페인 상세 설명 (ex : 제공되는 퀴즈 단계를 모두 풀어보세요!) |
-| quiz_info | thumb_url | String | 리스트에 들어가게될 썸네일 아이콘 |
-| quiz_info | quiz_count | Number | 퀴즈번들에 포함된 퀴즈 갯수 |
-| quiz_info | activation_start | String | 퀴즈 캠페인 활성화 시작시간 |
-| quiz_info | activation_end | String | 퀴즈 캠페인 활성화 종료료시간 |
-| quiz_info | landing_url | String | 랜딩URL POST Query로 전달하는 데이터가 함께 포함됩니다 변형x |
+| | quiz_list| List | 성공인 경우 이용 가능한 퀴즈 캠페인들이 담깁니다.  |
+| quiz_list | pid | Number | 퀴즈 캠페인 고유 아이디 |
+| quiz_list | title | String | 퀴즈 캠페인 이름 |
+| quiz_list | desc_text | String | 퀴즈 캠페인 상세 설명 (ex : 제공되는 퀴즈 단계를 모두 풀어보세요!) |
+| quiz_list | thumb_url | String | 리스트에 들어가게될 썸네일 아이콘 |
+| quiz_list | quiz_count | Number | 퀴즈번들에 포함된 퀴즈 갯수 |
+| quiz_list | activation_start | String | 퀴즈 캠페인 활성화 시작시간 |
+| quiz_list | activation_end | String | 퀴즈 캠페인 활성화 종료료시간 |
+| quiz_list | landing_url | String | 랜딩URL POST Query로 전달하는 데이터가 함께 포함됩니다 변형x |
 
 
 
@@ -142,7 +143,7 @@ order_id 가 추가됩니다.
 | ------------- | ------------------------------------------------------------|
 | api_key       |     스냅플레이에서 발급받은 API키  (ex : pub-xxxxxxxxx  형태) |
 | order_id      |   모든 퀴즈를 풀고나면 퀴즈 완료에 대한 고유 거래 아이디 발급. |
-| quiz_id      |   퀴즈 캠페인 고유 아이디  |
+| pid      |   퀴즈 캠페인 고유 아이디  |
 | params...     |   (선택) 조건달성시 돌려받을 파라메터 모음                     |
 
  
