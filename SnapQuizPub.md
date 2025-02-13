@@ -19,7 +19,7 @@
 ## * API 정보
 ### /pub_quizlist
 #### 참여 가능한 퀴즈목록 조회
-#### Method : POST 
+#### Method : POST , GET
 
 
 
@@ -31,13 +31,22 @@
 | user_id       |    N    | (선택) 유저 고유 아이디  |
 | params...       |  N  | (선택) 조건달성시 돌려받을 파라메터 모음                          |
 
- * #### params.. 기타 콜백으로 돌려받기 희망하는 데이터는 post 방식으로 넘기면 조건달성시 callback 으로 넘어갑니다. 
+ * #### params.. 기타 콜백으로 돌려받기 희망하는 데이터는 POST 또는 GET 방식으로 넘기면 조건달성시 callback 으로 넘어갑니다. 
       
 * 요청 Sample  : Javascript api 외 params (user_id, user_nick , expire_date..)
   * api_key : 'pub-testapi123456789'
   * user_id : 'test_user_id'
   * user_nick : 'test_user_nick'
   * expire_date : '2090-12-12'
+
+#### [GET 방식]
+
+https://quizapi.snapplay.io/api/pub_quizlist?api_key=pub-testapi123456789&user_id=test_user_id&user_nick=test_user_nick&expire_date=2090-12-12
+
+
+
+
+#### [POST 방식]  
 ``` javascript
 import axios from 'axios';
 
