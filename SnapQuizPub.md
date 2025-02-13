@@ -113,7 +113,7 @@ axios.post(API_DOMAIN, req_param) // POST 요청 + 모든 쿼리 매개변수 �
 | quiz_list | quiz_count | Number | 퀴즈번들에 포함된 퀴즈 갯수 |
 | quiz_list | activation_start | String | 퀴즈 캠페인 활성화 시작시간 |
 | quiz_list | activation_end | String | 퀴즈 캠페인 활성화 종료료시간 |
-| quiz_list | landing_url | String | 랜딩URL POST Query로 전달하는 데이터가 함께 포함됩니다 변형x |
+| quiz_list | landing_url | String | 랜딩URL ( 파라메터로 전달한 데이터가 함께 포함됩니다 ) |
 
 
 
