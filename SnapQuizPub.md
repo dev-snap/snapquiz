@@ -76,26 +76,46 @@ axios.post(API_DOMAIN, req_param) // POST 요청 + 모든 쿼리 매개변수 �
     "result": 0,
     "msg": "success",
     "quiz_list": [
-        {
-            "pid": 5,
-            "title": "간단한 퀴즈 참여하기",
-            "desc_text": "이미지퀴즈의 정답을 모두 맟추면 성공!",
-            "thumb_url": "snapquiz/quiz_img/pub/1/s3y10q0qshe.png",
-            "quiz_count": 2,
-            "activation_start": "2025-02-09 00:00:00",
-            "activation_end": "2025-02-09 23:59:00",
-            "landing_url": "https://quiz.snapplay.io/quizview_ad?type=pub&pid=5&api_key=pub-testapi123456789&user_id=test_user_id&user_nick=test_user_nick&expire_date=2090-12-12"
+         {
+            "pid": 352,
+            "title": "[동물] 간단한 퀴즈 참여하기",
+            "desc_text": "이미지 퀴즈의 정답을 모두 맞추면 성공!",
+            "thumb_url": "https://d31pfn6usm02y3.cloudfront.net/snapquiz/quiz_img/pub/1/dwuc4k3ee4n.png",
+            "activation_start": "2025-06-17 00:00:00",
+            "activation_end": "2025-06-17 23:59:00",
+            "quiz_count": 5,
+            "quiz_type": "NORMAL",
+            "ref_group_pid": 5,
+            "template_pid": 46,
+            "template_info": {
+                "pid": 46,
+                "quiz_type": "NORMAL",
+                "quiz_count": 2,
+                "ref_group_pid": 5,
+                "activation_type": "DAILY"
+            },
+            "landing_url": "https://snapplay.io/quizview_ad?type=pub&pid=352&api_key=pub-testapi123456789"
         },
         {
-            "pid": 7,
-            "title": "간단한 퀴즈 참여하기",
-            "desc_text": "이미지퀴즈의 정답을 모두 맟추면 성공!",
-            "thumb_url": "snapquiz/quiz_img/pub/1/rlnvjv0ro4.png",
+            "pid": 353,
+            "title": "[음식] 간단한 퀴즈 참여하기",
+            "desc_text": "이미지 퀴즈의 정답을 모두 맞추면 성공!",
+            "thumb_url": "https://d31pfn6usm02y3.cloudfront.net/snapquiz/quiz_img/pub/1/vba20ldz6yk.png",
+            "activation_start": "2025-06-17 00:00:00",
+            "activation_end": "2025-06-17 23:59:00",
             "quiz_count": 5,
-            "activation_start": "2025-02-09 00:00:00",
-            "activation_end": "2025-02-09 23:59:00",
-            "landing_url": "https://quiz.snapplay.io/quizview_ad?type=pub&pid=7&api_key=pub-testapi123456789&user_id=test_user_id&user_nick=test_user_nick&expire_date=2090-12-12"
-        }
+            "quiz_type": "TILE",
+            "ref_group_pid": 8,
+            "template_pid": 47,
+            "template_info": {
+                "pid": 47,
+                "quiz_type": "TILE",
+                "quiz_count": 3,
+                "ref_group_pid": 8,
+                "activation_type": "DAILY"
+            },
+            "landing_url": "https://snapplay.io/quizview_ad?type=pub&pid=353&api_key=pub-testapi123456789"
+        },
     ]
 }
 ```
@@ -114,6 +134,13 @@ axios.post(API_DOMAIN, req_param) // POST 요청 + 모든 쿼리 매개변수 �
 | quiz_list | activation_start | String | 퀴즈 캠페인 활성화 시작시간 |
 | quiz_list | activation_end | String | 퀴즈 캠페인 활성화 종료료시간 |
 | quiz_list | landing_url | String | 랜딩URL ( 파라메터로 전달한 데이터가 함께 포함됩니다 ) |
+| quiz_list | quiz_type | String | NORMAL : 가림막이 4칸으로 되어있는 일반형 퀴즈 ,  TILE : 블럭 없애기형 퀴즈  |
+| quiz_list | ref_group_pid | Number | 퀴즈 카테고리들의 묶음의 고유아이디 (부가정보) |
+| quiz_list | template_pid | Number | 퀴즈는 템플릿을 기반으로 복제되어 매일 생성됩니다. |
+| quiz_list | template_info | Object | 퀴즈의 기본설정이 담긴 템플릿의 정보 (부가정보) |
+
+
+
 
 
 
