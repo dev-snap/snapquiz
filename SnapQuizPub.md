@@ -94,7 +94,7 @@ axios.post(API_DOMAIN, req_param) // POST 요청 + 모든 쿼리 매개변수 �
                 "ref_group_pid": 5,
                 "activation_type": "DAILY"
             },
-            "landing_url": "https://snapplay.io/quizview_ad?type=pub&pid=352&api_key=pub-testapi123456789"
+            "landing_url": "https://quiz.snapplay.io/quizview_ad?type=pub&pid=352&api_key=pub-testapi123456789"
         },
         {
             "pid": 353,
@@ -114,7 +114,7 @@ axios.post(API_DOMAIN, req_param) // POST 요청 + 모든 쿼리 매개변수 �
                 "ref_group_pid": 8,
                 "activation_type": "DAILY"
             },
-            "landing_url": "https://snapplay.io/quizview_ad?type=pub&pid=353&api_key=pub-testapi123456789"
+            "landing_url": "https://quiz.snapplay.io/quizview_ad?type=pub&pid=353&api_key=pub-testapi123456789"
         },
     ]
 }
